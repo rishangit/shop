@@ -1,0 +1,11 @@
+<div *ngIf="fromElement != undefined" class="form-group" 
+[ngClass]="fromElement.class[2] != undefined ?fromElement.class[2]:''">
+  <label *ngIf="fromElement.label != undefined" class="control-label TPLableTxt"
+  [ngClass]="fromElement.class[0] != undefined ?fromElement.class[0]:''"
+  >{{fromElement.label}}</label>
+  <div [ngClass]="fromElement.class[1] != undefined ?fromElement.class[1]:''">
+    <input [(ngModel)]="object[fromElement.propName]" (ngModelChange)="eventText_change($event)" maxlength="{{fromElement.maxLength}}"
+      minlength="{{fromElement.minLength}}" type="text" class="form-control TDTextInput" placeholder="{{fromElement.palaceholder}}">
+    <span class="help-block" style="display:none;"> {{fromElement.error}}</span>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="white-box">
+    <div class="table-responsive">
+      <table class="table product-overview" id="myTable">
+        <thead>
+          <tr>
+            <th class="col-md-3">Item</th>
+            <th class="col-md-3">Selling Price</th>
+            <th class="col-md-3">Buying Price</th>
+            <th class="col-md-3">Date of Manufacture</th>
+            <th class="col-md-3">Date of Expiration</th>
+            <th class="col-md-3">Number of Items</th>   
+            <th class="col-md-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="stockItemList.length > 0">
+          <tr  *ngFor="let stockItem of stockItemList">
+            <td class="col-md-3">{{stockItem.prd | product:'nme' | async}}</td>
+            <td class="col-md-3">{{stockItem.sel}}</td>
+            <td class="col-md-3">{{stockItem.buy}}</td>
+            <td class="col-md-3">{{stockItem.mft}}</td>
+            <td class="col-md-3">{{stockItem.epr}}</td>
+            <td class="col-md-3">{{stockItem.noi}}</td>
+            <td class="col-md-3">
+              <a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit">
+                <i class="ti-marker-alt"></i>
+              </a>
+              <a href="javascript:void(0)" (click)="removeStock(stockItem)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete">
+                <i class="ti-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

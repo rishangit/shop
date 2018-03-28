@@ -1,0 +1,12 @@
+<div class="loaction-warp-formap" *ngIf="this.shopInfo.zom != undefined">
+    <div class="mapSearchWrp">
+        <input id="googlesearch" placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+          class="form-control" #search [formControl]="searchControl">
+      </div>
+      <button (click)="eventSearch_click()">search</button>
+  <agm-map mapTypeId="hybrid" [latitude]="shopInfo.location.coordinates[0]" [longitude]="shopInfo.location.coordinates[1]" [zoom]="shopInfo.zom"
+  (mapClick)="eventMap_click($event)"
+  (zoomChange)="eventZoom_change($event)" >
+    <agm-marker [latitude]="shopInfo.location.coordinates[0]" [longitude]="shopInfo.location.coordinates[1]" *ngIf="mapChoose"></agm-marker>
+  </agm-map>
+</div>

@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="white-box">
+    <div class="table-responsive">
+      <table class="table product-overview" id="myTable">
+
+        <tbody>
+          <tr *ngFor="let shopInfo of shopInfoList">
+            <div>
+              <div class="loaction-warp-formap" *ngIf="shopInfo.zom != undefined">
+
+                <agm-map mapTypeId="hybrid" [latitude]="shopInfo.location.coordinates[0]" [longitude]="shopInfo.location.coordinates[1]"
+                  [zoom]="shopInfo.zom" (mapClick)="eventMap_click($event)" (zoomChange)="eventZoom_change($event)">
+                  <agm-marker [latitude]="shopInfo.location.coordinates[0]" [longitude]="shopInfo.location.coordinates[1]"></agm-marker>
+                </agm-map>
+                <div>{{shopInfo.nme}}</div>
+                <div>{{shopInfo.ads}}</div>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

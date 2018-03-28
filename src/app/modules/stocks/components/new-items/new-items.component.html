@@ -1,0 +1,167 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        With Horizontal two column
+        <div class="pull-right">
+          <a data-perform="panel-dismiss">
+            <i class="ti-close" (click)="eventClose_click()"></i>
+          </a>
+        </div>
+      </div>
+      <div class="panel-wrapper collapse in" aria-expanded="true">
+        <div class="panel-body">
+          <div class="input-group">
+            <input id="example-input2-group1" [(ngModel)]="query" class="form-control" placeholder="Search products from server">
+            <span class="input-group-addon dropdown-toggle" (click)="eventSearch_click()" data-toggle="dropdown">
+              <i class="fa fa-search"></i>
+            </span>
+            <div class="dropdown-menu col-md-12">
+              <!-- item -->
+              <div class="comment-body" *ngFor="let product of productList ">
+                <div class="mail-contnet p-10 b-b" (click)="eventAdd_click(product)">
+                  <h3>{{product.nme}} {{product.qty}} <span class="unit">{{product.qtu | unitName | async}}</span></h3>
+                  <h5>
+                    <div class="m-b-5">{{product.mfd | manufacturedName | async}}</div>
+                    <div>{{product.des}}</div>
+                  </h5>
+                </div>
+              </div>
+              <!-- end item -->
+            </div>
+          </div>
+
+
+          <!-- info -->
+          <div class="form-horizontal form-body">
+            <hr class="m-t-0 m-b-40">
+            <h3 class="box-title">Item Info</h3>
+            <hr class="m-t-0 m-b-40">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Manufactured by:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> <span *ngIf="product != undefined">{{product.mfd | manufacturedName | async}}</span></p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Name:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"><span *ngIf="product != undefined">{{product.nme}}</span> </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">quantity:</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static">
+                      <span *ngIf="product != undefined">{{product.qty}} {{product.qtu | unitName | async}}</span> </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">description</label>
+                  <div class="col-md-9">
+                    <p class="form-control-static"> <span *ngIf="product != undefined">{{product.des}}</span> </p>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+          </div>
+          <!-- end info -->
+
+          <!-- add stock data -->
+          <div class="form-horizontal form-body">
+            <hr class="m-t-0 m-b-40">
+            <h3 class="box-title">Stock Info</h3>
+            <hr class="m-t-0 m-b-40">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Selling Price Rs:</label>
+                  <div class="col-md-9">
+                    <input type="text" [(ngModel)]="stockItem.sel" class="form-control">
+                    <!-- <span class="help-block"> This is inline help </span> -->
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Buying Price Rs:</label>
+                  <div class="col-md-9">
+                    <input type="text" [(ngModel)]="stockItem.buy" class="form-control">
+                    <!-- <span class="help-block"> This field has error. </span> -->
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Date of Manufacture</label>
+                  <div class="col-md-9">
+                    <input type="text" [(ngModel)]="stockItem.mft" class="form-control" placeholder="dd/mm/yyyy"> </div>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Date of Expiration</label>
+                  <div class="col-md-9">
+                    <input type="text" [(ngModel)]="stockItem.epr" class="form-control" placeholder="dd/mm/yyyy"> </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Number of Items</label>
+                  <div class="col-md-9">
+                    <input type="text" [(ngModel)]="stockItem.noi" class="form-control" placeholder="10000"> </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+
+            <button _ngcontent-c5="" class="btn btn-block btn-info btn-rounded" (click)="saveItemsToStock()">Add to Stock</button>
+          </div>
+          <!-- end add stock data -->
+        </div>
+      </div>
+
+
+      <!-- enter code -->
+      <!-- <div class="panel-wrapper collapse">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="form-group">
+                <label>Product Bar Code</label>
+                <input type="text" class="form-control" (change)="eventProdItemCode_change()"> </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- end enter code -->
+    </div>
+  </div>
+
+</div>

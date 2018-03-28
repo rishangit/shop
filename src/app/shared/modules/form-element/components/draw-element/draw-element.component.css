@@ -1,0 +1,5 @@
+.draw-element-wrp{
+    float: left;
+    width: 100%;
+    position: relative;
+}

@@ -1,0 +1,58 @@
+<div class="row" [ngClass]="{'minimized':minimized}">
+  <div class="col-sm-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        With Horizontal two column
+        <div class="pull-right">
+          <a data-perform="panel-collapse">
+            <i class="ti-minus" (click)="eventMinus_click()"></i>
+          </a>
+          <a data-perform="panel-dismiss">
+            <i class="ti-close" (click)="eventClose_click()"></i>
+          </a>
+        </div>
+      </div>
+      <div class="panel-wrapper collapse in" aria-expanded="true">
+        <div class="panel-body">
+          <div class="col-sm-6">
+            <div class="white-box">
+              <h3 class="box-title">Search</h3>
+              <!-- search ctrl -->
+              <div class="input-group m-t-10">
+                <input id="example-input2-group1" [(ngModel)]="query" (keyup.enter)="eventSearch_click()" class="form-control" placeholder="Search products from server">
+                <span class="input-group-addon"  (click)="eventSearch_click()">
+                  <i class="fa fa-search"></i>
+                </span>
+              </div>
+              <!--end search ctrl -->
+              <!-- results -->
+              <div class="comment-center">
+                <div class="comment-body" *ngFor="let product of productList ">
+                  <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user" class="img-circle"></div>
+                  <div class="mail-contnet">
+                    <h5>{{product.mfd}}</h5>
+                    <span class="time">{{product.nme}} {{product.qty}}</span>
+                    <!-- <span class="label label-rouded label-info">PENDING</span> -->
+                    <br>
+                    <span class="mail-desc">{{product.des}}</span>
+                    <a href="javacript:void(0)" class="btn btn btn-rounded btn-default btn-outline m-r-5" (click)="eventAdd_click(product)">
+                      <i class="ti-check text-success m-r-5"></i>
+                      Add</a>
+                    <!-- <a href="javacript:void(0)" class="btn-rounded btn btn-default btn-outline"><i class="ti-close text-danger m-r-5"></i> Reject</a> -->
+                  </div>
+                </div>
+              </div>
+              <!-- end result -->
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="white-box">
+              <h3 class="box-title">Preview</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,8 @@
+.minimized{
+    position: absolute;
+    bottom: 0;
+}
+
+H3 .unit{
+    text-transform: lowercase;
+}

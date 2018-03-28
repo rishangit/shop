@@ -1,0 +1,8 @@
+
+<div *ngIf="formElementList != undefined" class="draw-element-wrp" >
+  <div *ngFor="let fromElement of formElementList">
+    <div [ngSwitch]="fromElement.type">
+      <app-text *ngSwitchCase="formElementType.TEXT" [fromElement]="fromElement" [object]="object" (changeElementEvent)="changeElementEvent($event)"></app-text>
+    </div>
+  </div>
+</div>

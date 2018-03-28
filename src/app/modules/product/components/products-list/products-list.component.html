@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="white-box">
+    <div class="table-responsive">
+      <table class="table product-overview" id="myTable">
+        <thead>
+          <tr>
+            <th>Catagory</th>
+            <th>Manufactured by</th>
+            <th>Item</th>
+
+            <th>Quantity of item</th>
+            <th>Product Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <div class="m-t-10 col-md-12" *ngIf="productList.length == 0">No Products to Display</div>
+          <tr *ngFor="let product of productList">
+            <td>{{product.cat | catagoryName | async}}</td>
+            <td>{{product.mfd | manufacturedName | async}}</td>
+            <td>{{product.nme}}</td>
+            <td>{{product.qty}} {{product.qtu | unitName | async}}</td>
+            <td>{{product.des}}</td>
+            <td>
+              <!-- <a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit">
+                <i class="ti-marker-alt"></i>
+              </a> -->
+              <a href="javascript:void(0)" (click)="removeProduct(product)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete">
+                <i class="ti-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

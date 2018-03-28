@@ -1,0 +1,24 @@
+<div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 class="page-title">Dashboard 1</h4>
+    </div>
+    <div class="col-lg-2 col-sm-4 col-xs-12">
+        <button *ngIf="projectService.subHeader.btnAddNew" class="btn btn-block btn-info btn-rounded" (click)="evntAddNew_click()">Add New Item</button>
+    </div>
+    <div class="col-lg-7 col-sm-8 col-md-8 col-xs-12">
+        <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20">
+            <i class="ti-settings text-white"></i>
+        </button>
+        <button (click)="eventSync_click()"  class="waves-effect waves-light btn-info btn-circle pull-right m-l-20">
+            <i class="icon-refresh"></i>
+        </button>
+        <a (click)="evBuyAdmin_click()" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Buy Admin Now</a>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="active">Dashboard 1</li>
+        </ol>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

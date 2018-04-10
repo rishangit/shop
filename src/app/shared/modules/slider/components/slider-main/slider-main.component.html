@@ -1,14 +1,17 @@
 <!-- start right sidebar -->
 <!-- ============================================================== -->
-<div class="right-sidebar slider" [ngClass]="{'slider-show' :projectService.sliderShow }">
+<div *ngIf="slider != undefined" class="right-sidebar slider" [ngClass]="{'slider-show' :projectService.sliderShow }" [style.width]="slider.width + '%'">
   <div class="slimscrollright">
-    <div class="rpanel-title"> Service Panel
+    <div class="rpanel-title"> {{slider.title}}
       <span (click)="eventSliderClose()">
         <i class="ti-close right-side-toggle"></i>
       </span>
     </div>
-    <div class="r-panel-body">
-      <ng-template #dynamicInsert></ng-template>
+    <div class="panel">
+      <div class="panel-body">
+        <ng-template #dynamicinsert></ng-template>
+      </div>
+
     </div>
   </div>
 </div>

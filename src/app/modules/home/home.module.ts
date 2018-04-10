@@ -7,14 +7,16 @@ import { homeRoutes } from './home.routes';
 import { HomeMainComponent } from './components/home-main/home-main.component';
 import { HomeComponent } from './components/home/home.component';
 
-import { SharedCommonModule } from '../../shared/modules/shared-common/shared-common.module';
 import { HomeNaviComponent } from './components/home-navi/home-navi.component'
+import { HeaderModule } from '../../shared/modules/header/header.module';
+import { SliderModule } from '../../shared/modules/slider/slider.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(homeRoutes),
-    SharedCommonModule,
+    HeaderModule,
+    SliderModule
   ],
   exports: [
     RouterModule

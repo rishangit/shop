@@ -4,7 +4,6 @@ import { Http, HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app.routes';
-import { SharedCommonModule } from './shared/modules/shared-common/shared-common.module';
 import { AppComponent } from './app.component';
 
 //service
@@ -18,15 +17,14 @@ import { HttpCallService } from './shared/services/http-call.service';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    HttpClientModule,
-    SharedCommonModule
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
 
   ],
   providers: [ProjectService, HttpCallService, SyncService],
-  exports: [SharedCommonModule],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

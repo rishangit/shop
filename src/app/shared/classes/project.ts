@@ -44,6 +44,8 @@ export class Slider {
     width?: number = 50; //%
     top?: number = 0;//px
     component?:any;
+    object?: any;
+    callBack?: Function
 }
 
 export class SubHeader {

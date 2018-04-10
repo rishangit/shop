@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //services
-import { ProjectService } from '../../services/project.service';
-import { SyncService } from '../../services/sync.service';
+
+import { SyncService } from '../../../../services/sync.service';
+import { ProjectService } from '../../../../services/project.service';
 
 @Component({
   selector: 'app-sub-header',

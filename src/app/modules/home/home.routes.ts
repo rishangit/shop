@@ -13,6 +13,7 @@ export const homeRoutes: Routes = [
       { path: 'shopinfo', loadChildren: '../shop-info/shop-info.module#ShopInfoModule' },
       { path: 'product', loadChildren: '../product/product.module#ProductModule' },
       { path: 'stocks', loadChildren: '../stocks/stocks.module#StocksModule' },
+      { path: 'billing', loadChildren: '../billing/billing.module#BillingModule' },
       
     ]
   }

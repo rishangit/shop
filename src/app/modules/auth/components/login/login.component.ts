@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
 
   doLogin(event) {
     this.loginService.login(this.loginData).subscribe((res:Res) => { 
-      debugger
       if (res.typ == ResType.SUCCESS_OBJ) {
         this.router.navigate(['/home'])
       }

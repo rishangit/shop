@@ -15,7 +15,6 @@ export class ProductPipe implements PipeTransform {
       let getByID: GetByID = new GetByID;
       getByID._id = value;
       this.getObjService.getProduct(getByID).subscribe((res: Res) => {
-        debugger
         switch (res.typ) {
           case ResType.SUCCESS_OBJ:
             let product: Product = <Product>res.obj;

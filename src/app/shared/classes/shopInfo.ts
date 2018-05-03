@@ -11,8 +11,7 @@ export class ShopInfo {
     cat: string;
     img?: string;
     location?: GeoLocation = {};
-    constructor(){
-        debugger
+    constructor(){        
         this.location.type = GeoLocationType.Point;
         this.location.coordinates = [];
     }

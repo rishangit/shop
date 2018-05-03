@@ -34,7 +34,6 @@ export class SyncService {
       switch (syncItem.sdb) {
         case DbType.SHOP_DB:
           this.httpCallService.post('get_shop_info', { _id: syncItem.syc }).subscribe(resp => {
-            debugger
             if (resp.suc) {
               let syncFullItem: any = resp.obj;
               this.saveShopInfoToServer(syncFullItem);
@@ -43,7 +42,6 @@ export class SyncService {
           break;
         case DbType.STOCK_DB:
           this.httpCallService.post('get_stock_item', { _id: syncItem.syc }).subscribe(resp => {
-            debugger
             if (resp.suc) {
               let syncFullItem: any = resp.obj;
               this.saveLiveStockToServer(syncFullItem);

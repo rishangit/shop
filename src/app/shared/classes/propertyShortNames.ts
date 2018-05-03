@@ -41,6 +41,7 @@ export interface PropNames {
     sdb?: number; // sync database type 
     sel?: number ; //Selling Prce
     syc?: string; //sync
+    stk?: string; //Stock ID
     //T
     tag: string[]; //tags
     typ:number;// type

@@ -6,6 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewBillingComponent } from './components/new-billing/new-billing.component';
 import { BillingFormComponent } from './components/billing-form/billing-form.component';
 import { BillingInfoComponent } from './components/billing-info/billing-info.component';
+import { BillingService } from './services/billing.service';
+import { StockService } from '../stocks/services/stock.service';
+import { ProductsService } from '../product/services/products.service';
 
 export const billingRoutes: Routes = [
   {
@@ -26,6 +29,8 @@ export const billingRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
   ],
-  declarations: [BillingMainComponent, NewBillingComponent, BillingFormComponent, BillingInfoComponent]
+  declarations: [BillingMainComponent, NewBillingComponent, BillingFormComponent, BillingInfoComponent],
+  providers:[ProductsService,StockService,BillingService]
+  
 })
 export class BillingModule { }

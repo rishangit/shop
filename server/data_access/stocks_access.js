@@ -27,7 +27,7 @@ module.exports = {
     listData: function (param) {
         queryObj = {}
         if (param.data.query != undefined && param.data.query != '') {
-            queryObj = { $or: [{ "cod": param.query }, { "mfd": param.query }] }
+            queryObj = { $or: [{ "cod": param.data.query }, { "mfd": param.data.query },{ "prd": param.data.query }] }
         }
         db.find(queryObj, function (err, docs) {
             if (err)

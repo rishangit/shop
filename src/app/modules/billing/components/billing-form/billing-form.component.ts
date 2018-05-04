@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchParam, Res } from '../../../../shared/classes/project';
 import { ResType } from '../../../../shared/classes/enums';
 import { BillingService } from '../../services/billing.service';
-import { Product, StockItem, BillItemDetails } from '../../../../shared/classes/common';
+import { Product, StockItem, BillItemDetails, BillItem } from '../../../../shared/classes/common';
 import { StockService } from '../../../stocks/services/stock.service';
 import { ProductsService } from '../../../product/services/products.service';
 
@@ -19,6 +19,7 @@ export class BillingFormComponent implements OnInit {
   selectedProduct: Product;
   selectedStockItem: StockItem;
   billItemDetailsList: Map<string, BillItemDetails> = new Map<string, BillItemDetails>();
+  billItemList: Map<string, BillItem> = new Map<string, BillItem>();
   billIDList: string[] = [];
   constructor(
     private productsService: ProductsService,
@@ -62,6 +63,7 @@ export class BillingFormComponent implements OnInit {
 
   addToBillItemDetailList() {
     let id: string = this.selectedProduct._id + '_' + this.selectedStockItem._id;
+    this.billItemList.set(id, { _id: id, noi: 1, prd: this.selectedProduct._id, stk: this.selectedStockItem._id })
     this.billItemDetailsList.set(id, { _id: id, noi: 1, prd: this.selectedProduct, stk: this.selectedStockItem })
     this.billIDList = Array.from(this.billItemDetailsList.keys());
   }

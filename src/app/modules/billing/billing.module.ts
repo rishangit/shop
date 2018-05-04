@@ -9,6 +9,7 @@ import { BillingInfoComponent } from './components/billing-info/billing-info.com
 import { BillingService } from './services/billing.service';
 import { StockService } from '../stocks/services/stock.service';
 import { ProductsService } from '../product/services/products.service';
+import { GetObjectModule } from '../../shared/modules/get-object/get-object.module';
 
 export const billingRoutes: Routes = [
   {
@@ -28,6 +29,7 @@ export const billingRoutes: Routes = [
     RouterModule.forChild(billingRoutes),
     FormsModule,
     ReactiveFormsModule,
+    GetObjectModule
   ],
   declarations: [BillingMainComponent, NewBillingComponent, BillingFormComponent, BillingInfoComponent],
   providers:[ProductsService,StockService,BillingService]

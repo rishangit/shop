@@ -10,6 +10,7 @@ import { BillingService } from './services/billing.service';
 import { StockService } from '../stocks/services/stock.service';
 import { ProductsService } from '../product/services/products.service';
 import { GetObjectModule } from '../../shared/modules/get-object/get-object.module';
+import { BillingListComponent } from './components/billing-list/billing-list.component';
 
 export const billingRoutes: Routes = [
   {
@@ -31,7 +32,7 @@ export const billingRoutes: Routes = [
     ReactiveFormsModule,
     GetObjectModule
   ],
-  declarations: [BillingMainComponent, NewBillingComponent, BillingFormComponent, BillingInfoComponent],
+  declarations: [BillingMainComponent, NewBillingComponent, BillingFormComponent, BillingInfoComponent, BillingListComponent],
   providers:[ProductsService,StockService,BillingService]
   
 })

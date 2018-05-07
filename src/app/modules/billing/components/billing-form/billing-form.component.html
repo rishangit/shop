@@ -11,12 +11,7 @@
                     </div>
                 </div>
             </div>
-            <ng-container *ngIf="billIDList.length > 0">
-                <div *ngFor="let billID of billIDList">
-                    <span>{{billID}}</span>
-                </div>
-            </ng-container>
-
+            <billing-list></billing-list>
         </div>
     </div>
 </div>

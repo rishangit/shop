@@ -1,3 +1,38 @@
-<p>
-  billing-list works!
-</p>
+<ng-container *ngIf="billingService.billItemList.length > 0">
+  <!-- <div *ngFor="let billItem of billingService.billItemList">
+    <span>{{billItem.prd | product:'nme'|async}}</span>
+  </div> -->
+
+
+  <div class="row">
+    <div class="white-box">
+      <div class="table-responsive">
+        <table class="table product-overview" id="myTable">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Manufactured by</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div class="m-t-10 col-md-12" *ngIf="billingService.billItemList == 0">No Items to Display</div>
+            <tr *ngFor="let billItem of billingService.billItemList">
+              <td>{{billItem.prd | product:'nme'|async}}</td>
+              <td>{{billItem.prd | product:'mfd'| async | manufacturedName | async }}</td>
+              <td>{{billItem.noi}}</td>
+              <td>{{billItem.prd | product:'nme'|async}}</td>
+              <td>
+                <a href="javascript:void(0)" (click)="removeProduct(billItem)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete">
+                  <i class="ti-trash"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>

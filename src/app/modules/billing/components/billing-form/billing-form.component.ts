@@ -32,10 +32,8 @@ export class BillingFormComponent implements OnInit {
 
 
   eventSearch_click() {
-
     let parm: SearchParam = {};
     parm.query = this.query;
-    debugger
     this.productsService.listProduct(parm).subscribe((res: Res) => {
       if (res.typ == ResType.SUCCESS_LIST) {
         this.productList = res.lst;
@@ -55,16 +53,13 @@ export class BillingFormComponent implements OnInit {
         this.stockItemList = res.lst;
         if (this.stockItemList.length == 1) {
           this.selectedStockItem = this.stockItemList[0];
-          this.addToBillItemDetailList();
+          this.addtoBillItemDetailList();
         }
       }
     })
   }
 
-  addToBillItemDetailList() {
-    //let id: string = this.selectedProduct._id + '_' + this.selectedStockItem._id;
-    this.billingService.billItemList.push({ noi: 1, prd: this.selectedProduct._id, stk: this.selectedStockItem._id })
-    //this.billItemDetailsList.set(id, { _id: id, noi: 1, prd: this.selectedProduct, stk: this.selectedStockItem })
-    this.billIDList = Array.from(this.billItemDetailsList.keys());
+  addtoBillItemDetailList() {
+    this.billingService.addBillingItem({ noi: 1, prd: this.selectedProduct._id, stk: this.selectedStockItem._id });
   }
 }

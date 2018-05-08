@@ -56,6 +56,7 @@ export class BillingFormComponent implements OnInit {
         this.stockItemList = res.lst;
         if (this.stockItemList.length == 1) {
           this.selectedStockItem = this.stockItemList[0];
+          this.billingService.addStockItem(this.selectedStockItem);
           this.addtoBillItemDetailList();
         }
       }

@@ -3,6 +3,7 @@
 export interface PropNames { 
     //A
     ads?:string;// adress
+    amt?:number; //amount
     //B
     buy?:number; //Buying Price
     //C

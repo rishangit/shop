@@ -6,6 +6,7 @@ export class BillItem {
     noi?: number; // Number of Items
     stk?: string; // Stock ID
     prd?: string; // Product id
+    amt?:number; //amount
 }
 
 export class BillItemDetails {
@@ -13,6 +14,7 @@ export class BillItemDetails {
     noi?: number; // Number of Items
     stk?: StockItem; // Stock ID
     prd?: Product; // Product id
+    amt?:number; //amount
 }
 //C
 //D

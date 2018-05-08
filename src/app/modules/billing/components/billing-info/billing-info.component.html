@@ -1,1 +1,48 @@
-<div class="col-md-4">billing Info</div>
+<div class="col-md-4" id="bill-info">
+    <div class="white-box pull-left">
+        <div class="col-md-12">---Header---</div>
+
+        <!-- info body -->
+        <div class="col-md-12  p-0">
+            <div class="table-responsive">
+                <table class="table product-overview" >
+                    <thead>
+                        <tr>
+                            <div class="col-md-1 info-hd">No</div>
+                            <div class="col-md-3 info-hd">Item</div>
+                            <div class="col-md-3 info-hd">Qty</div>
+                            <div class="col-md-3 info-hd">Price</div>
+                            <div class="col-md-2 info-hd">Amount</div> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div class="m-t-10 col-md-12" *ngIf="billingService.billItemList == 0">No Items to Display</div>
+                        <tr *ngFor="let billItem of billingService.billItemList; let i = index">
+
+                            <div class="col-md-12 p-0">
+                                <div class="col-md-1 p-0">{{i + 1}}</div>
+                                <div class="col-md-11 p-0">{{billItem.prd | product:'nme'| async}} - {{billItem.prd | product:'mfd'| async | manufacturedName
+                                    | async }}</div>
+                            </div>
+                            <div class="col-md-12 p-0">
+                                <div class="col-md-4 p-0"></div>
+                                <div class="col-md-3 p-0">{{billItem.noi}}</div>
+                                <div class="col-md-3 p-0">{{billItem.stk | stock:'sel'| async}}</div>
+                                <div class="col-md-2 p-0 txt-al-r">{{billItem.amt}}</div>
+                                <!-- {{billItem.stk | stock:'sel'| async}} x {{billItem.noi}} -->
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12 p-0 net-wrp">
+            <div class="col-md-6 p-0">Net Total</div>
+            <div class="col-md-6 p-0 txt-al-r">{{billingService.netTotal}}</div>
+        </div>
+        <!-- end - info body -->
+
+
+        <div class="col-md-12">---Footer---</div>
+    </div>
+</div>

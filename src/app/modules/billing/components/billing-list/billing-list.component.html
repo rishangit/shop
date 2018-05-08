@@ -10,6 +10,7 @@
         <table class="table product-overview" id="myTable">
           <thead>
             <tr>
+              <th>No</th>
               <th>Item</th>
               <th>Manufactured by</th>
               <th>Quantity</th>
@@ -19,7 +20,8 @@
           </thead>
           <tbody>
             <div class="m-t-10 col-md-12" *ngIf="billingService.billItemList == 0">No Items to Display</div>
-            <tr *ngFor="let billItem of billingService.billItemList">
+            <tr *ngFor="let billItem of billingService.billItemList; let i = index">
+              <td>{{i + 1}}</td>
               <td>{{billItem.prd | product:'nme'| async}}</td>
               <td>{{billItem.prd | product:'mfd'| async | manufacturedName | async }}</td>
               <td>{{billItem.noi}}</td>

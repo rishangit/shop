@@ -20,10 +20,10 @@
           <tbody>
             <div class="m-t-10 col-md-12" *ngIf="billingService.billItemList == 0">No Items to Display</div>
             <tr *ngFor="let billItem of billingService.billItemList">
-              <td>{{billItem.prd | product:'nme'|async}}</td>
+              <td>{{billItem.prd | product:'nme'| async}}</td>
               <td>{{billItem.prd | product:'mfd'| async | manufacturedName | async }}</td>
               <td>{{billItem.noi}}</td>
-              <td>{{billItem.prd | product:'nme'|async}}</td>
+              <td>{{billItem.stk | stock:'sel'| async}}</td>
               <td>
                 <a href="javascript:void(0)" (click)="removeProduct(billItem)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete">
                   <i class="ti-trash"></i>

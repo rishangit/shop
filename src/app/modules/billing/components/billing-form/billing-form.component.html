@@ -4,10 +4,11 @@
             <div class="panel-wrapper collapse in" aria-expanded="true">
                 <div class="panel-body">
                     <div class="input-group">
-                        <input id="example-input2-group1" [(ngModel)]="query" class="form-control" placeholder="Product Code / Name">
+                        <input #search [(ngModel)]="query" class="form-control" placeholder="Product Code / Name">
                         <span class="input-group-addon dropdown-toggle" (click)="eventSearch_click()" data-toggle="dropdown">
                             <i class="fa fa-search"></i>
                         </span>
+                        <input type="number" min="1" [(ngModel)]="noOfItems" class="form-control no-of-Items" placeholder="No of Items" (keydown)="eventNoOfItems_keydown($event)"> 
                     </div>
                 </div>
             </div>

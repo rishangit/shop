@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, ElementRef, ViewChild } from '@angular/core';
 import { SearchParam, Res } from '../../../../shared/classes/project';
 import { ResType } from '../../../../shared/classes/enums';
 import { BillingService } from '../../services/billing.service';
@@ -12,6 +12,7 @@ import { ProductsService } from '../../../product/services/products.service';
   styleUrls: ['./billing-form.component.css']
 })
 export class BillingFormComponent implements OnInit {
+  @ViewChild('search') inpSearch: ElementRef;
 
   query: string;
   productList: Product[] = [];
@@ -20,6 +21,8 @@ export class BillingFormComponent implements OnInit {
   selectedStockItem: StockItem;
   billItemDetailsList: Map<string, BillItemDetails> = new Map<string, BillItemDetails>();
   billIDList: string[] = [];
+  noOfItems: number = 1;
+  timer: any;
   constructor(
     private productsService: ProductsService,
     private stockService: StockService,
@@ -60,6 +63,17 @@ export class BillingFormComponent implements OnInit {
   }
 
   addtoBillItemDetailList() {
-    this.billingService.addBillingItem({ noi: 1, prd: this.selectedProduct._id, stk: this.selectedStockItem._id });
+    this.billingService.addBillingItem({ noi: this.noOfItems, prd: this.selectedProduct._id, stk: this.selectedStockItem._id });
+  }
+
+  eventNoOfItems_keydown(event) {
+    if (event.which == 13 || event.keyCode == 13) {
+      this.billingService.updateNoOfItems(this.noOfItems, () => {
+        setTimeout(() => {
+          this.inpSearch.nativeElement.focus();
+          this.noOfItems = 1;
+        }, 100);
+      });
+    }
   }
 }

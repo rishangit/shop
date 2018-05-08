@@ -4,24 +4,49 @@
       <table class="table product-overview" id="myTable">
         <thead>
           <tr>
-            <th class="col-md-3 ">Item</th>
+            <!-- <th class="col-md-3 ">Item</th>
+            <th>Manufactured by</th>
             <th class="col-md-1 ">Selling Price</th>
             <th class="col-md-1 ">Buying Price</th>
             <th class="col-md-2 ">Date of Manufacture</th>
             <th class="col-md-2 ">Date of Expiration</th>
             <th class="col-md-1 ">Number of Items</th>   
-            <th class="col-md-1 ">Actions</th>
+            <th class="col-md-1 ">Actions</th> -->
+            <th>Item</th>
+            <th>Manufactured by</th>
+            <th>Selling Price</th>
+            <th>Buying Price</th>
+            <th>Date of Manufacture</th>
+            <th>Date of Expiration</th>
+            <th>Number of Items</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody *ngIf="stockItemList.length > 0">
-          <tr  *ngFor="let stockItem of stockItemList">
-            <td class="col-md-3 ">{{stockItem.prd | product:'nme' | async}}</td>
+          <tr *ngFor="let stockItem of stockItemList">
+            <!-- <td class="col-md-3 ">{{stockItem.prd | product:'nme' | async}}</td>
             <td class="col-md-1 ">{{stockItem.sel}}</td>
             <td class="col-md-1 ">{{stockItem.buy}}</td>
             <td class="col-md-2 ">{{stockItem.mft}}</td>
             <td class="col-md-2 ">{{stockItem.epr}}</td>
             <td class="col-md-1">{{stockItem.noi}}</td>
             <td class="col-md-1 ">
+              <a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit">
+                <i class="ti-marker-alt"></i>
+              </a>
+              <a href="javascript:void(0)" (click)="removeStock(stockItem)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete">
+                <i class="ti-trash"></i>
+              </a>
+            </td> -->
+
+            <td >{{stockItem.prd | product:'nme' | async}}</td>
+            <td >{{stockItem.prd | product:'mfd' | async | manufacturedName | async}}</td>
+            <td >{{stockItem.sel}}</td>
+            <td >{{stockItem.buy}}</td>
+            <td >{{stockItem.mft}}</td>
+            <td >{{stockItem.epr}}</td>
+            <td >{{stockItem.noi}}</td>
+            <td >
               <a href="javascript:void(0)" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit">
                 <i class="ti-marker-alt"></i>
               </a>

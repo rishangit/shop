@@ -10,8 +10,14 @@ export class BillingService {
   constructor(private httpCallService: HttpCallService) { }
 
 
-  addBillingItem(billItem:BillItem) {
+  addBillingItem(billItem: BillItem) {
     this.billItemList.push(billItem);
+  }
+
+  updateNoOfItems(noOfItems,callBack) {
+    let ln = this.billItemList.length
+    this.billItemList[ln - 1].noi = noOfItems;
+    callBack();
   }
 
 }

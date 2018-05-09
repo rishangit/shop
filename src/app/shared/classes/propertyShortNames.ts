@@ -9,6 +9,7 @@ export interface PropNames {
     //C
     cat?; string;// Catagory
     cod?:string; //Code
+    cls?:string; //class
     //D
     des:string; //description
     //E

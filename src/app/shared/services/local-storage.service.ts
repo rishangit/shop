@@ -15,7 +15,6 @@ export class LocalStorageService {
   }
 
   saveProjectData(key: string, val: any, pfx?: string) {
-    debugger
     let newkey: string = pfx != undefined ? 'prj_' + pfx + '_' + key : 'prj_' + key;
     this.save(newkey, val);
   }
@@ -26,12 +25,12 @@ export class LocalStorageService {
   }
 
   getProjectData(key: string, pfx?: string) {
-    let newkey: string = pfx != undefined ? 'sys_' + pfx + '_' + key : 'sys_' + key;
+    let newkey: string = pfx != undefined ? 'prj_' + pfx + '_' + key : 'prj_' + key;
     return this.get(newkey)
   }
 
   getSystemData(key: string, pfx?: string) {
-    let newkey: string = pfx != undefined ? 'prj_' + pfx + '_' + key : 'prj_' + key;
+    let newkey: string = pfx != undefined ? 'sys_' + pfx + '_' + key : 'sys_' + key;
     return this.get(newkey)
   }
 }

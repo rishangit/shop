@@ -26,7 +26,7 @@
               <td>{{billItem.prd | product:'mfd'| async | manufacturedName | async }}</td>
               <td>{{billItem.noi}}</td>
               <td>{{billItem.stk | stock:'sel'| async}}</td>
-              <td>
+              <td >
                 <a href="javascript:void(0)" (click)="removeProduct(billItem)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete">
                   <i class="ti-trash"></i>
                 </a>

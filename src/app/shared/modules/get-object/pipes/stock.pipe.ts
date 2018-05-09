@@ -10,32 +10,31 @@ import { LocalStorageService } from '../../../services/local-storage.service';
 })
 export class StockPipe implements PipeTransform {
 
-
   constructor(
     private getObjService: GetObjService,
     private localStorageService: LocalStorageService) { }
 
   transform(value: any, prop?: any): any {
     return new Promise((resolve, reject) => {
-      debugger
       let getByID: GetByID = new GetByID;
       getByID._id = value;
       let stockItem: StockItem = this.localStorageService.getProjectData(getByID._id, 'stock')
       if (stockItem) {
         resolve(stockItem[prop]);
+      } else {
+        this.getObjService.getStockItems(getByID).subscribe((res: Res) => {
+          switch (res.typ) {
+            case ResType.SUCCESS_OBJ:
+              stockItem = <StockItem>res.obj;
+              this.localStorageService.saveProjectData(getByID._id, stockItem, 'stock')
+              resolve(stockItem[prop]);
+              break;
+            case ResType.SUCCESS_EMPTY:
+              let msg = "Name Not found";
+              break;
+          }
+        })
       }
-      this.getObjService.getStockItems(getByID).subscribe((res: Res) => {
-        switch (res.typ) {
-          case ResType.SUCCESS_OBJ:
-            let stockItem: StockItem = <StockItem>res.obj;
-            this.localStorageService.saveProjectData(getByID._id, stockItem, 'stock')
-            resolve(stockItem[prop]);
-            break;
-          case ResType.SUCCESS_EMPTY:
-            let msg = "Name Not found";
-            break;
-        }
-      })
     })
   }
 

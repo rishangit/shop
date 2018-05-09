@@ -14,6 +14,7 @@ export const homeRoutes: Routes = [
       { path: 'product', loadChildren: '../product/product.module#ProductModule' },
       { path: 'stocks', loadChildren: '../stocks/stocks.module#StocksModule' },
       { path: 'billing', loadChildren: '../billing/billing.module#BillingModule' },
+      { path: 'setting', loadChildren: '../setting/setting.module#SettingModule' },
       
     ]
   }

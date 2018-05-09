@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from '../../../../shared/services/project.service';
 import { ProductsService } from '../../services/products.service';
 import { SearchParam } from '../../../../shared/classes/project';
 import { Product } from '../../../../shared/classes/common';
@@ -16,7 +15,6 @@ export class NewItemComponent implements OnInit {
   query: string = "";
   productList: Product[] = [];
   constructor(
-    private projectService: ProjectService,
     private productsService: ProductsService,
     private router:Router
   ) { }

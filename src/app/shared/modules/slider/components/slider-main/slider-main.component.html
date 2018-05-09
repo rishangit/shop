@@ -1,6 +1,6 @@
 <!-- start right sidebar -->
 <!-- ============================================================== -->
-<div *ngIf="slider != undefined" class="right-sidebar slider" [ngClass]="{'slider-show' :projectService.sliderShow }" [style.width]="slider.width + '%'">
+<div *ngIf="slider != undefined" class="right-sidebar slider" [ngClass]="{'slider-show' :systemService.sliderShow }" [style.width]="slider.width + '%'">
   <div class="slimscrollright">
     <div class="rpanel-title"> {{slider.title}}
       <span (click)="eventSliderClose()">

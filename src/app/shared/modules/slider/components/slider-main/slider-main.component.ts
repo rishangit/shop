@@ -1,7 +1,7 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef, Input } from '@angular/core';
-import { ProjectService } from '../../../../services/project.service';
 import { Slider } from '../../../../classes/project';
 import { SliderBase } from '../../classes/slider-base';
+import { SystemService } from '../../../../services/system.service';
 
 @Component({
   selector: 'app-slider',
@@ -15,12 +15,12 @@ export class SliderMainComponent implements OnInit {
   slider: Slider = new Slider();
 
   constructor(
-    public projectService: ProjectService,
+    public systemService: SystemService,
     private componentFactoryResolver: ComponentFactoryResolver,
   ) {
-    this.projectService.subscriptionSlider = this.projectService.eventSliderCallback$.subscribe(obj => {
+    this.systemService.subscriptionSlider = this.systemService.eventSliderCallback$.subscribe(obj => {
       this.slider = obj;
-      this.projectService.sliderShow = true;
+      this.systemService.sliderShow = true;
       this.drowSlider();
     })
 
@@ -29,7 +29,7 @@ export class SliderMainComponent implements OnInit {
   ngOnInit() { }
 
   eventSliderClose() {
-    this.projectService.sliderShow = false;
+    this.systemService.sliderShow = false;
   }
 
   drowSlider() {

@@ -4,8 +4,8 @@ import { ShopInfoService } from '../../services/shop-info.service';
 
 import '../../../../../assets/plugins/bower_components/jquery-wizard-master/dist/jquery-wizard.min.js'
 //service
-import { ProjectService } from '../../../../shared/services/project.service';
 import { ShopInfo } from '../../../../shared/classes/common';
+import { SystemService } from '../../../../shared/services/system.service';
 
 declare var $: any;
 declare var wizard: any;
@@ -21,7 +21,7 @@ export class NewShopComponent implements OnInit {
   shopInfo: ShopInfo = new ShopInfo();
   constructor(
     private shopInfoService: ShopInfoService,
-    private projectService: ProjectService
+    private systemService: SystemService
   ) {  }
 
   ngOnInit() {

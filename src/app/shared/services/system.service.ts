@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ISubscription } from 'rxjs/Subscription';
-import { Subject } from 'rxjs';
 import { SubHeader } from '../classes/project';
-import { flatten } from '@angular/router/src/utils/collection';
+import { Subject } from 'rxjs';
 
 @Injectable()
-export class ProjectService {
+export class SystemService {
 
   //sub header
   subscriptionAddNew: ISubscription;

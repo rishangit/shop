@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { NewItemComponent } from '../new-item/new-item.component'
 //class
 import { Slider } from '../../../../shared/classes/project';
+import { SystemService } from '../../../../shared/services/system.service';
 //service
-import { ProjectService } from '../../../../shared/services/project.service';
 
 @Component({
   selector: 'app-product-main',
@@ -15,13 +15,13 @@ import { ProjectService } from '../../../../shared/services/project.service';
 export class ProductMainComponent implements OnInit {
 
   constructor(
-    private projectService: ProjectService,
+    private systemService: SystemService,
     private router: Router
   ) {
-    this.projectService.subHeader.btnAddNew = true;
-    if (this.projectService.subscriptionAddNew != undefined)
-      this.projectService.subscriptionAddNew.unsubscribe();
-    this.projectService.subscriptionAddNew = this.projectService.eventAddNewCallback$.subscribe(object => {
+    this.systemService.subHeader.btnAddNew = true;
+    if (this.systemService.subscriptionAddNew != undefined)
+      this.systemService.subscriptionAddNew.unsubscribe();
+    this.systemService.subscriptionAddNew = this.systemService.eventAddNewCallback$.subscribe(object => {
       this.addNewProduct();
     })
   }

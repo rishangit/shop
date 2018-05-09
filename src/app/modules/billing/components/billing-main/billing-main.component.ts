@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from '../../../../shared/services/system.service';
 
 @Component({
   selector: 'app-billing-main',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillingMainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private systemService: SystemService) {
+    this.systemService.subHeader.btnAddNew = false;
+  }
 
   ngOnInit() {
   }

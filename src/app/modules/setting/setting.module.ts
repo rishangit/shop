@@ -4,15 +4,16 @@ import { SettingMainComponent } from './components/setting-main/setting-main.com
 import { Routes, RouterModule } from '@angular/router';
 import { SettingBillingComponent } from './components/setting-billing/setting-billing.component';
 import { SettingThemeComponent } from './components/setting-theme/setting-theme.component';
-
+import { FormsModule } from '@angular/forms';
+import { SettingService } from './services/setting.service';
 
 export const setingRoutes: Routes = [
   {
     path: '', component: SettingMainComponent,
     children: [
-      { path: '',   redirectTo: 'billing', pathMatch: 'prefix' },
-       { path: 'billing', component: SettingBillingComponent },
-       { path: 'theme', component: SettingThemeComponent },
+      { path: '', redirectTo: 'billing', pathMatch: 'prefix' },
+      { path: 'billing', component: SettingBillingComponent },
+      { path: 'theme', component: SettingThemeComponent },
       //{ path: 'new', component: NewBillingComponent }
     ]
   },
@@ -21,8 +22,10 @@ export const setingRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(setingRoutes),
+    FormsModule,
+    RouterModule.forChild(setingRoutes)
   ],
-  declarations: [SettingMainComponent, SettingBillingComponent, SettingThemeComponent]
+  declarations: [SettingMainComponent, SettingBillingComponent, SettingThemeComponent],
+  providers: [SettingService]
 })
 export class SettingModule { }

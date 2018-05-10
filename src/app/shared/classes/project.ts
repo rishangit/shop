@@ -2,6 +2,10 @@ import { ResType } from "./enums";
 
 //A
 //B
+export class BillingSetting {
+    header?: string;
+    footer?: string;
+}
 //C
 //D
 //E
@@ -56,6 +60,11 @@ export class Slider {
 
 export class SubHeader {
     btnAddNew?: boolean = false;
+}
+
+export class Setting {
+    _id?: string;
+    billingSetting?: BillingSetting
 }
 //T
 //U

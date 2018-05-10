@@ -1,3 +1,16 @@
-<p>
-  setting-billing works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <label class="col-md-4">Bill Header</label>
+    <div class="col-md-8">
+      <textarea [(ngModel)]="billingSetting.header"></textarea>
+    </div>
+  </div>
+  <div class="col-md-6 c-b">
+    <label class="col-md-4">Bill Footer</label>
+    <div class="col-md-8">
+      <textarea [(ngModel)]="billingSetting.footer"></textarea>
+    </div>
+  </div>
+  <button class="btn btn-block btn-info btn-rounded" (click)="eventSave_click()">Save Changers</button>
+  <button class="btn btn-block btn-info btn-rounded" (click)="eventRemove_click()">remove Setting</button>
+</div>

@@ -5,3 +5,18 @@
 .txt-al-l{
     text-align: left;
 }
+.f-l{
+    float: left;
+}
+.f-r{
+    float: right;
+}
+.c-l{
+    clear: left;
+}
+.c-r{
+    clear: right;
+}
+.c-b{
+    clear: both;
+}

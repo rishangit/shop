@@ -1,42 +1,8 @@
 <div class="row">
   <div class="white-box">
     <ul class="nav customtab nav-tabs" role="tablist">
-      <!-- <li role="presentation" class="">
-        <a href="#home1" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="false">
-          <span class="visible-xs">
-            <i class="ti-home"></i>
-          </span>
-          <span class="hidden-xs"> Home</span>
-        </a>
-      </li>
-      <li role="presentation" class="">
-        <a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false">
-          <span class="visible-xs">
-            <i class="ti-user"></i>
-          </span>
-          <span class="hidden-xs">Profile</span>
-        </a>
-      </li>
-      <li role="presentation" class="">
-        <a href="#messages1" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false">
-          <span class="visible-xs">
-            <i class="ti-email"></i>
-          </span>
-          <span class="hidden-xs">Messages</span>
-        </a>
-      </li>
-      <li role="presentation" class="active">
-        <a href="#settings1" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="true">
-          <span class="visible-xs">
-            <i class="ti-settings"></i>
-          </span>
-          <span class="hidden-xs">Settings</span>
-        </a>
-      </li> -->
-
-
       <li role="presentation" *ngFor="let settingTab of settingTabList">
-        <a href="#{{settingTab._id}}" role="tab" data-toggle="tab" aria-expanded="false">
+        <a href="#{{settingTab._id}}" role="tab" data-toggle="tab" aria-expanded="false" (click)="eventTab_click(settingTab)">
           <span class="visible-xs">
             <i class="" [ngClass]="settingTab.cls"></i>
           </span>
@@ -44,58 +10,13 @@
         </a>
       </li>
     </ul>
-
-
     <div class="tab-content">
-      <ng-container *ngFor="let settingTab of settingTabList">
+      <router-outlet></router-outlet>
+      <!-- <ng-container *ngFor="let settingTab of settingTabList">
         <div role="tabpanel" class="tab-pane fade" id="{{settingTab._id}}">
           {{settingTab.nme}}
         </div>
-      </ng-container>
-
+      </ng-container> -->
     </div>
-
-    <!-- <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade" id="home1">
-        <div class="col-md-6">
-          <h3>Best Clean Tab ever</h3>
-          <h4>you can use it with the small code</h4>
-        </div>
-        <div class="col-md-5 pull-right">
-          <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="profile1">
-        <div class="col-md-6">
-          <h3>Lets check profile</h3>
-          <h4>you can use it with the small code</h4>
-        </div>
-        <div class="col-md-5 pull-right">
-          <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="messages1">
-        <div class="col-md-6">
-          <h3>Come on you have a lot message</h3>
-          <h4>you can use it with the small code</h4>
-        </div>
-        <div class="col-md-5 pull-right">
-          <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <div role="tabpanel" class="tab-pane fade active in" id="settings1">
-        <div class="col-md-6">
-          <h3>Just do Settings</h3>
-          <h4>you can use it with the small code</h4>
-        </div>
-        <div class="col-md-5 pull-right">
-          <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div> -->
   </div>
 </div>

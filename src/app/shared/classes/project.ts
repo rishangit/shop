@@ -38,12 +38,18 @@ export class SearchParam {
     page?: number = 1;
 }
 
+export class SettingTab {
+    _id?: string;
+    nme?: string;// name
+    cls?: string; //class
+}
+
 export class Slider {
     show?: boolean = false;
     title?: string = "Slider window";
     width?: number = 50; //%
     top?: number = 0;//px
-    component?:any;
+    component?: any;
     object?: any;
     callBack?: Function
 }

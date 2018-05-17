@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ISubscription } from 'rxjs/Subscription';
-import { SubHeader } from '../classes/project';
+import { SubHeader, Res, Setting } from '../classes/project';
 import { Subject } from 'rxjs';
+import { SettingService } from '../../modules/setting/services/setting.service';
+import { ResType } from '../classes/enums';
 
 @Injectable()
 export class SystemService {
@@ -9,6 +11,7 @@ export class SystemService {
   //sub header
   subscriptionAddNew: ISubscription;
   subHeader: SubHeader = new SubHeader;
+  sysSetting:Setting;
   eventAddNewCallback = new Subject<any>();
   eventAddNewCallback$ = this.eventAddNewCallback.asObservable();
   //end - sub header
@@ -23,8 +26,21 @@ export class SystemService {
   eventSyncCallback$ = this.eventSyncCallback.asObservable();
   //end - sync
 
-  constructor() {
+   constructor(
+    // private settingService: SettingService
+  ) {
 
   }
+
+  // getSystemSetting() {
+  //   this.settingService.getSetting_global().subscribe((res: Res) => {
+  //     debugger
+  //     switch (res.typ) {
+  //       case ResType.SUCCESS_OBJ:
+          
+  //         break;
+  //     }
+  //   })
+  // }
 
 }

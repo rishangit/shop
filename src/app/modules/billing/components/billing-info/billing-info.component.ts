@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BillingService } from '../../services/billing.service';
+import { SystemService } from '../../../../shared/services/system.service';
 
 @Component({
   selector: 'billing-info',
@@ -8,9 +9,11 @@ import { BillingService } from '../../services/billing.service';
 })
 export class BillingInfoComponent implements OnInit {
 
-  constructor(public  billingService: BillingService) { }
+  constructor(public  billingService: BillingService,
+  public systemService:SystemService ) { }
 
   ngOnInit() {
+   
   }
 
 }

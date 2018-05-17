@@ -11,6 +11,7 @@ import { AuthMainComponent } from './components/auth-main/auth-main.component';
 
 import { HttpCallService } from '../../shared/services/http-call.service'
 import { LoginService } from './components/login/login.service';
+import { SettingService } from '../setting/services/setting.service';
 
 @NgModule({
   imports: [
@@ -19,8 +20,8 @@ import { LoginService } from './components/login/login.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [
-    HttpCallService, LoginService],
-  declarations: [LoginComponent, SignupComponent, AuthMainComponent]
+  providers: [HttpCallService, LoginService, SettingService],
+  declarations: [LoginComponent, SignupComponent, AuthMainComponent],
+
 })
 export class AuthModule { }

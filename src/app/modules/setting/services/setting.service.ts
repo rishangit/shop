@@ -32,10 +32,10 @@ export class SettingService {
     })
   }
 
-  getSetting() {
+ getSetting() {
     let getByID: GetByID = new GetByID;
     getByID._id = "setting";
-    this.httpCallService.post('get_setting', getByID).subscribe((res: Res) => {
+    this.getSetting_global().subscribe((res: Res) => {
       switch (res.typ) {
         case ResType.SUCCESS_OBJ:
           this.setting = <Setting>res.obj;
@@ -48,6 +48,13 @@ export class SettingService {
       }
     })
   }
+
+  getSetting_global(){
+    let getByID: GetByID = new GetByID;
+    getByID._id = "setting";
+    return this.httpCallService.post('get_setting', getByID);
+  }
+
 
   removeSetting() {
     this.httpCallService.post('remove_setting', this.setting).subscribe((res: Res) => {

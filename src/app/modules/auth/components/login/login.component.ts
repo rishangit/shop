@@ -5,6 +5,8 @@ import { LoginService } from './login.service';
 import { Res } from '../../../../shared/classes/project';
 import { ResType } from '../../../../shared/classes/enums';
 import { LoginData } from '../../../../shared/classes/common';
+import { SystemService } from '../../../../shared/services/system.service';
+import { SettingService } from '../../../setting/services/setting.service';
 
 
 @Component({
@@ -17,6 +19,8 @@ export class LoginComponent implements OnInit {
   loginData: LoginData
   constructor(
     private loginService: LoginService,
+    private settingService: SettingService,
+    private systemService:SystemService,
     private router: Router
   ) {
     this.loginData = {};
@@ -28,9 +32,19 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(event) {
-    this.loginService.login(this.loginData).subscribe((res:Res) => { 
+    this.loginService.login(this.loginData).subscribe((res: Res) => {
       if (res.typ == ResType.SUCCESS_OBJ) {
-        this.router.navigate(['/home'])
+        this.router.navigate(['/home']);
+        this.getSetting();
+      }
+    })
+  }
+
+  getSetting() {
+    this.settingService.getSetting_global().subscribe((res: Res) => {
+      debugger
+      if (res.typ == ResType.SUCCESS_OBJ) {
+        this.systemService.sysSetting = res.obj
       }
     })
   }

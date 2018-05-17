@@ -33,8 +33,7 @@ export class SystemService {
   }
 
   // getSystemSetting() {
-  //   this.settingService.getSetting_global().subscribe((res: Res) => {
-  //     debugger
+  //   this.settingService.getSetting_call().subscribe((res: Res) => {
   //     switch (res.typ) {
   //       case ResType.SUCCESS_OBJ:
           

@@ -6,6 +6,7 @@ import { SettingBillingComponent } from './components/setting-billing/setting-bi
 import { SettingThemeComponent } from './components/setting-theme/setting-theme.component';
 import { FormsModule } from '@angular/forms';
 import { SettingService } from './services/setting.service';
+import { WysiwygModule } from '../../shared/modules/wysiwyg/wysiwyg.module';
 
 export const setingRoutes: Routes = [
   {
@@ -23,7 +24,8 @@ export const setingRoutes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(setingRoutes)
+    RouterModule.forChild(setingRoutes),
+    WysiwygModule
   ],
   declarations: [SettingMainComponent, SettingBillingComponent, SettingThemeComponent],
   providers: [SettingService]

@@ -40,7 +40,6 @@ router.post('/get_product_unit', productUnitController.getData);
 const settingController = require('../controller/setting_controller');
 router.post('/save_setting', settingController.saveData);
 router.post('/update_setting', settingController.updateData);
-
 router.post('/get_setting', settingController.getData);
 router.post('/remove_setting', settingController.removeData);
 

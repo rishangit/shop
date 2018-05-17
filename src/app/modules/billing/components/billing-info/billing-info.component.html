@@ -1,6 +1,6 @@
 <div class="col-md-4 p-r-0" id="bill-info">
     <div class="white-box pull-left">
-        <div class="col-md-12">{{systemService.sysSetting.billingSetting.header}}</div>
+        <div class="col-md-12 m-b-20 p-0" [innerHtml]="systemService.sysSetting.billingSetting.header"></div>
 
         <!-- info body -->
         <div class="col-md-12  p-0">
@@ -41,8 +41,6 @@
             <div class="col-md-6 p-0 txt-al-r">{{billingService.netTotal}}</div>
         </div>
         <!-- end - info body -->
-
-
-        <div class="col-md-12">{{systemService.sysSetting.billingSetting.footer}}</div>
+        <div class="col-md-12 m-t-20 p-0"  [innerHtml]="systemService.sysSetting.billingSetting.footer"></div>
     </div>
 </div>

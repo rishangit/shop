@@ -3,6 +3,7 @@ import { HttpCallService } from '../../../shared/services/http-call.service';
 import { Setting, GetByID, Res, BillingSetting } from '../../../shared/classes/project';
 import { ResType } from '../../../shared/classes/enums';
 import { Subject } from 'rxjs';
+import { SystemService } from '../../../shared/services/system.service';
 
 @Injectable()
 export class SettingService {
@@ -11,8 +12,10 @@ export class SettingService {
   eventSettingCallback = new Subject<any>();
   eventSettingCallback$ = this.eventSettingCallback.asObservable();
 
-  constructor(private httpCallService: HttpCallService) {
-    this.getSetting();
+  constructor(
+    private httpCallService: HttpCallService,
+    private systemService: SystemService) {
+    
   }
 
   saveSetting() {
@@ -26,16 +29,16 @@ export class SettingService {
     this.httpCallService.post(postCall, this.setting).subscribe((res: Res) => {
       switch (res.typ) {
         case ResType.SUCCESS_OBJ:
-          //this.setting = <Setting>res.obj;
+          this.systemService.sysSetting = this.setting;
           break;
       }
     })
   }
 
- getSetting() {
+  getSetting() {
     let getByID: GetByID = new GetByID;
     getByID._id = "setting";
-    this.getSetting_global().subscribe((res: Res) => {
+    this.getSetting_call().subscribe((res: Res) => {
       switch (res.typ) {
         case ResType.SUCCESS_OBJ:
           this.setting = <Setting>res.obj;
@@ -49,7 +52,7 @@ export class SettingService {
     })
   }
 
-  getSetting_global(){
+  getSetting_call() {
     let getByID: GetByID = new GetByID;
     getByID._id = "setting";
     return this.httpCallService.post('get_setting', getByID);

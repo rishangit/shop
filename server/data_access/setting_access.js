@@ -14,7 +14,8 @@ module.exports = {
     },
 
     updateData: function (param) {
-        db.update({ _id: param.data._id }, param.data, function (err, doc) {
+        console.log("update settings");
+        db.update({ _id: param.data._id },{$set:param.data},{}, function (err, doc) {
             if (err)
                 param.error(err);
             else

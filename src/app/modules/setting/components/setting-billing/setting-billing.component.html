@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
     <label class="col-md-4">Bill Header</label>
     <div class="col-md-8">
       <textarea [(ngModel)]="billingSetting.header"></textarea>
@@ -10,7 +10,23 @@
     <div class="col-md-8">
       <textarea [(ngModel)]="billingSetting.footer"></textarea>
     </div>
-  </div>
+  </div> -->
+  <ng-container *ngIf="billingSetting">
+    <div class="col-md-8 c-b m-b-10">
+      <label class="col-md-4">Bill Header</label>
+      <div class="col-md-8">
+        <wysiwyg-main [tinyID]="'hd'" [value]="billingSetting.header" (onChange)="eventWysiwyg_change($event)">
+        </wysiwyg-main>
+      </div>
+    </div>
+    <div class="col-md-8 c-b">
+      <label class="col-md-4">Bill Footer</label>
+      <div class="col-md-8">
+        <wysiwyg-main [tinyID]="'ft'" [value]="billingSetting.footer" (onChange)="eventWysiwyg_change($event)">
+        </wysiwyg-main>
+      </div>
+    </div>
+  </ng-container>
   <button class="btn btn-block btn-info btn-rounded" (click)="eventSave_click()">Save Changers</button>
   <button class="btn btn-block btn-info btn-rounded" (click)="eventRemove_click()">remove Setting</button>
 </div>

@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   getSetting() {
-    this.settingService.getSetting_global().subscribe((res: Res) => {
-      debugger
+    this.settingService.getSetting_call().subscribe((res: Res) => {
       if (res.typ == ResType.SUCCESS_OBJ) {
         this.systemService.sysSetting = res.obj
       }

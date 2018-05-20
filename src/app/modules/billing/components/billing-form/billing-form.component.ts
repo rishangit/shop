@@ -23,10 +23,11 @@ export class BillingFormComponent implements OnInit {
   billIDList: string[] = [];
   noOfItems: number = 1;
   timer: any;
+  payAmount: number = 0;
   constructor(
     private productsService: ProductsService,
     private stockService: StockService,
-    private billingService: BillingService
+    public billingService: BillingService
   ) { }
 
   ngOnInit() {
@@ -75,6 +76,13 @@ export class BillingFormComponent implements OnInit {
           this.noOfItems = 1;
         }, 100);
       });
+    }
+  }
+
+  eventPay_blur($event) {
+    if (!isNaN($event.currentTarget.value)) {
+      this.payAmount = $event.currentTarget.value;
+
     }
   }
 }

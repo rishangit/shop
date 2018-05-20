@@ -8,11 +8,24 @@
                         <span class="input-group-addon dropdown-toggle" (click)="eventSearch_click()" data-toggle="dropdown">
                             <i class="fa fa-search"></i>
                         </span>
-                        <input type="number" min="1" [(ngModel)]="noOfItems" class="form-control no-of-Items" placeholder="No of Items" (keydown)="eventNoOfItems_keydown($event)"> 
+                        <input type="number" min="1" [(ngModel)]="noOfItems" class="form-control no-of-Items" placeholder="No of Items" (keydown)="eventNoOfItems_keydown($event)">
                     </div>
                 </div>
             </div>
             <billing-list></billing-list>
+            <div class="row">
+                <div class="col-md-2 pull-left"> Total</div>
+                <div class="col-md-2 p-0 txt-al-r pull-right">{{billingService.netTotal}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 pull-left"> Pay</div>
+                <input type="text" class="col-md-3 pull-right  txt-al-r pay-inp" [(ngModel)]="payAmount" (blur)="eventPay_blur($event)" />
+            </div>
+            <div class="row">
+                <div class="col-md-2 pull-left"> Balance</div>
+                <div *ngIf="payAmount" class="col-md-2 p-0 txt-al-r pull-right">{{payAmount - billingService.netTotal}}</div>
+            </div>
         </div>
     </div>
+
 </div>

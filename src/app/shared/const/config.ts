@@ -1,4 +1,4 @@
 export const config =  {
-apiUrl : "http://localhost:3000/api/",
-serverApiUrl : "http://localhost:3020/api/"
+apiUrl : "http://172.30.38.219:8080/api/",
+serverApiUrl : "http://172.30.38.219:8080/api/"
 }
